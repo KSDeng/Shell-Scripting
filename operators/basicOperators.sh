@@ -45,3 +45,28 @@ fi
 # 在MAC中shell的expr语法是: $((表达式))，此处的表达式中的“*”不需要转义符号
 
 
+# 使用方括号
+# "$[]"这种格式也可以用于表达式，比使用expr方便很多
+
+var1=$[1 + 5]
+echo $var1
+
+var2=$[$var1 * 2]
+echo $var2
+
+var1=100
+var2=50
+var3=45
+# 方括号中的"*"不需要使用转义符
+var4=$[$var1 * ($var2 - $var3)]
+echo The final result is $var4		# echo 后面输出的字符串可以不加双引号
+
+
+var1=100
+var2=45
+var3=$[$var1 / $var2]		# 这种方式处理不了浮点运算
+echo The final result is $var3
+
+
+
+
